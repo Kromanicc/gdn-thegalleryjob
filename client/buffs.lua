@@ -1,0 +1,55 @@
+local QBCore = exports['qb-core']:GetCoreObject()
+
+--- //// Events for useable buffs on server side
+RegisterNetEvent('gdn-illegaljob:rubyrun')
+AddEventHandler('gdn-illegaljob:rubyrun', function()
+    local ped = PlayerPedId()
+    exports['ps-buffs']:StaminaBuffEffect(180000, 1.1)
+end)
+
+RegisterNetEvent('gdn-illegaljob:sapprun')
+AddEventHandler('gdn-illegaljob:sapprun', function()
+    local ped = PlayerPedId()
+    exports['ps-buffs']:AddArmorBuff(30000, 10)
+end)
+
+RegisterNetEvent('gdn-illegaljob:tanzanrun')
+AddEventHandler('gdn-illegaljob:tanzanrun', function()
+    local ped = PlayerPedId()
+    exports['ps-buffs']:SwimmingBuffEffect(25000, 1.1)
+end)
+
+RegisterNetEvent('gdn-illegaljob:onxyrun')
+AddEventHandler('gdn-illegaljob:onxyrun', function()
+    local ped = PlayerPedId()
+    exports['ps-buffs']:AddHealthBuff(35000, 2)
+end)
+
+RegisterNetEvent('gdn-illegaljob:citrinerrun')
+AddEventHandler('gdn-illegaljob:citrinerrun', function()
+    local ped = PlayerPedId()
+    exports['ps-buffs']:AddStressBuff(15000, 2)
+end)
+
+RegisterNetEvent('gdn-illegaljob:aquamarinerrun')
+AddEventHandler('gdn-illegaljob:aquamarinerrun', function()
+    local ped = PlayerPedId()
+    exports['ps-buffs']:AddHealthBuff(35000, 2)
+    exports['ps-buffs']:StaminaBuffEffect(35000, 1.1)
+end)
+
+RegisterNetEvent('gdn-illegaljob:diamondrun')
+AddEventHandler('gdn-illegaljob:diamondrun', function()
+    local ped = PlayerPedId()
+    exports['ps-buffs']:AddArmorBuff(60000, 2)
+    exports['ps-buffs']:AddStressBuff(35000, 2)
+end)
+
+RegisterNetEvent('gdn-illegaljob:jaderrun')
+AddEventHandler('gdn-illegaljob:jaderrun', function()
+    local ped = PlayerPedId()
+    exports['ps-buffs']:AddArmorBuff(60000, 2)
+    exports['ps-buffs']:AddStressBuff(35000, 2)
+    exports['ps-buffs']:AddHealthBuff(35000, 2)
+
+end)
