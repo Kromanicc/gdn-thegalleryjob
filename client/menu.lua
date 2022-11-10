@@ -22,12 +22,12 @@ end)
 ---/// PolyZones for locations
 Citizen.CreateThread(function()
     if QBCore.Functions.GetPlayerData().job.name =='gallery' and QBCore.Functions.GetPlayerData().job.onduty then
-        exports['qb-target']:AddBoxZone("selltable", vector3(-1532.5, -402.44, 35.64), 2, 1, {
+        exports['qb-target']:AddBoxZone("selltable", vector3(316.72, -587.51, 43.29), 2, 1, {
             name="selltable",
-            heading= 320,
+            heading= 272,
             --debugPoly=true,
-            minZ= 32.44,
-            maxZ= 36.44,
+            minZ= 39.89,
+            maxZ= 43.89,
         }, {
             options = {
                 {
@@ -56,12 +56,12 @@ Citizen.CreateThread(function()
             job = {"all"},
             distance = 2.0
         })
-        exports['qb-target']:AddBoxZone("duty", vector3(-1535.78, -402.6, 35.63), 0.7, 0.7, {
+        exports['qb-target']:AddBoxZone("duty", vector3(313.95, -587.52, 43.29), 1, 1, {
             name="duty",
-            heading= 320,
+            heading= 335,
             --debugPoly=true,
-            minZ= 32.23,
-            maxZ= 36.23,
+            --minZ= 32.23,
+            --maxZ= 36.23,
         }, {
             options = {
                 {
@@ -161,77 +161,70 @@ RegisterNetEvent('Gem:Sell', function()
                 header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/gemstone(1).png width=25> Diamond",
                 txt = "D",
                 params = {
-                    event = "gdn-illegaljob:client:selling10",
+                    event = "gdn-illegaljob:client:Diamonds",
                 }
             },
             { 
                 header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/gemstone(1).png width=25> Sapphire",
                 txt = "S",
                 params = {
-                    event = "gdn-illegaljob:client:selling9",
+                    event = "gdn-illegaljob:client:sapp",
                 }
             },
             {
                 header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/gemstone(1).png width=25> Emerald",
                 txt = "E",
                 params = {
-                    event = "gdn-illegaljob:client:selling8",
+                    event = "gdn-illegaljob:client:emerald",
                 }
             },
             {
                 header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/gemstone(1).png width=25> Ruby",
                 txt = "R",
                 params = {
-                    event = "gdn-illegaljob:client:selling7",
+                    event = "gdn-illegaljob:client:rubby",
                 }
             },
             {
                 header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/gemstone(1).png width=25> Opal",
                 txt = "O",
                 params = {
-                    event = "gdn-illegaljob:client:selling6",
+                    event = "gdn-illegaljob:client:opal",
                 }
             },
             {
                 header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/gemstone(1).png width=25> Pink-Diamond",
                 txt = "PD",
                 params = {
-                    event = "gdn-illegaljob:client:selling5",
+                    event = "gdn-illegaljob:pink",
                 }
             },
             {
                 header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/gemstone(1).png width=25> Black-Diamond",
                 txt = "BD",
                 params = {
-                    event = "gdn-illegaljob:client:selling4",
-                }
-            },
-            {
-                header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/8ct-gold-chain.png width=25> V Gold chain",
-                txt = "V Chain",
-                params = {
-                    event = "gdn-illegaljob:client:selling3",
+                    event = "gdn-illegaljob:client:blacDiamond",
                 }
             },
             {
                 header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/8ct-gold-chain.png width=25> 10ct-Gold-chain",
                 txt = "10ct",
                 params = {
-                    event = "gdn-illegaljob:client:selling2",
+                    event = "gdn-illegaljob:client:10kgoldchains",
                 }
             },
             {
-                header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/np_rolex-watch.png width=25> Gold Rolex",
+                header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/np_rolex-watch.png width=25> Rolex",
                 txt = "Gold Rolex",
                 params = {
-                    event = "gdn-illegaljob:client:selling1",
+                    event = "gdn-illegaljob:client:rolexx",
                 }
             },
             {
                 header = "<img src= https://hosting.photobucket.com/images/ss47/monlf/5ct-gold-chain.png width=25> Gold Chain",
                 txt = "Gold Chain",
                 params = {
-                    event = "gdn-illegaljob:client:selling",
+                    event = "gdn-illegaljob:client:goldchain",
 
                 }
             },
@@ -344,7 +337,7 @@ RegisterNetEvent('gdn-illegaljob:ringmenu1', function(data)
 end) 
 ---///// Input Menu for selling
 
-RegisterNetEvent('gdn-illegaljob:client:selling', function()   ---- Gold chain
+RegisterNetEvent('gdn-illegaljob:client:10kgoldchains', function()   ---- 10k Gold chain
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -360,11 +353,11 @@ RegisterNetEvent('gdn-illegaljob:client:selling', function()   ---- Gold chain
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling1", sellitem)
+        TriggerEvent("gdn-illegaljob:client:10k", sellitem)
     end
 end)
 
-RegisterNetEvent('gdn-illegaljob:client:selling10', function()    ------- Diamond
+RegisterNetEvent('gdn-illegaljob:client:Diamonds', function()    ------- Diamond
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -380,11 +373,11 @@ RegisterNetEvent('gdn-illegaljob:client:selling10', function()    ------- Diamon
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling2", sellitem)
+        TriggerEvent("gdn-illegaljob:client:diamond", sellitem)
     end
 end)
 
-RegisterNetEvent('gdn-illegaljob:client:selling9', function()         -------- Sapphire
+RegisterNetEvent('gdn-illegaljob:client:sapp', function()         -------- Sapphire
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -400,11 +393,11 @@ RegisterNetEvent('gdn-illegaljob:client:selling9', function()         -------- S
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling3", sellitem)
+        TriggerEvent("gdn-illegaljob:client:sapph", sellitem)
     end
 end)
 
-RegisterNetEvent('gdn-illegaljob:client:selling8', function()     --------- Emerald
+RegisterNetEvent('gdn-illegaljob:client:emerald', function()     --------- Emerald
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -420,11 +413,11 @@ RegisterNetEvent('gdn-illegaljob:client:selling8', function()     --------- Emer
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling4", sellitem)
+        TriggerEvent("gdn-illegaljob:client:emeraldss", sellitem)
     end
 end)
 
-RegisterNetEvent('gdn-illegaljob:client:selling7', function()     ---------------- Ruby
+RegisterNetEvent('gdn-illegaljob:client:rubby', function()     ---------------- Ruby
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -440,11 +433,11 @@ RegisterNetEvent('gdn-illegaljob:client:selling7', function()     --------------
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling5", sellitem)
+        TriggerEvent("gdn-illegaljob:client:ruby", sellitem)
     end
 end)
 
-RegisterNetEvent('gdn-illegaljob:client:selling6', function()   ------------ Opal
+RegisterNetEvent('gdn-illegaljob:client:opal', function()   ------------ Opal
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -460,11 +453,11 @@ RegisterNetEvent('gdn-illegaljob:client:selling6', function()   ------------ Opa
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling6", sellitem)
+        TriggerEvent("gdn-illegaljob:client:opals", sellitem)
     end
 end)
 
-RegisterNetEvent('gdn-illegaljob:client:selling5', function()    --------- Pink Diamond
+RegisterNetEvent('gdn-illegaljob:pink', function()    --------- Pink Diamond
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -480,11 +473,11 @@ RegisterNetEvent('gdn-illegaljob:client:selling5', function()    --------- Pink 
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling7", sellitem)
+        TriggerEvent("gdn-illegaljob:client:pinkD", sellitem)
     end
 end)
 
-RegisterNetEvent('gdn-illegaljob:client:selling4', function()  -------- Black Diamond
+RegisterNetEvent('gdn-illegaljob:client:blacDiamond', function()  -------- Black Diamond
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -500,11 +493,11 @@ RegisterNetEvent('gdn-illegaljob:client:selling4', function()  -------- Black Di
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling8", sellitem)
+        TriggerEvent("gdn-illegaljob:client:blackD", sellitem)
     end
 end)
 
-RegisterNetEvent('gdn-illegaljob:client:selling3', function() ----------- V gold chain
+RegisterNetEvent('gdn-illegaljob:client:goldchain', function()  -------- Gold Chain
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -520,11 +513,10 @@ RegisterNetEvent('gdn-illegaljob:client:selling3', function() ----------- V gold
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling9", sellitem)
+        TriggerEvent("gdn-illegaljob:client:client:gold", sellitem)
     end
 end)
-
-RegisterNetEvent('gdn-illegaljob:client:selling2', function()  -------- 10ct Gold chain
+RegisterNetEvent('gdn-illegaljob:client:rolexx', function()  -------- Rolex
     local input = exports['qb-input']:ShowInput({
         header = "Sell Menu",
         submitText = "Sell",
@@ -540,25 +532,6 @@ RegisterNetEvent('gdn-illegaljob:client:selling2', function()  -------- 10ct Gol
     if input then
         if not input.amount then return end
 		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling10", sellitem)
-    end
-end)
-RegisterNetEvent('gdn-illegaljob:client:selling1', function()  -------- Rolex
-    local input = exports['qb-input']:ShowInput({
-        header = "Sell Menu",
-        submitText = "Sell",
-        inputs = {
-            {
-                type = 'number',
-                isRequired = true,
-                name = 'amount',
-                text = 'amount to Sold'
-            }
-        }
-    })
-    if input then
-        if not input.amount then return end
-		local sellitem = tonumber(input.amount)
-        TriggerEvent("gdn-illegaljob:client:client:selling:rolex", sellitem)
+        TriggerEvent("ggdn-illegaljob:client:selling:rolex", sellitem)
     end
 end)
