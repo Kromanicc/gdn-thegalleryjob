@@ -1,6 +1,5 @@
 Config = {}
 
-Config.ProgBarSpeed = 7500
 
 Config.Blip = {
     ['x'] = -1527.469,
